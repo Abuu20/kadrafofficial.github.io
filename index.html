@@ -3,231 +3,519 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KADRAF Technology</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        html {
-            scroll-behavior: smooth;
+        /* Base Styles (Mobile-first by default) */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .header {
+            min-height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url("images/pc.jpg");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        nav img {
+            width: 100px;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            background: #f44336;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            width: 100%;
+        }
+
+        .nav-links ul li {
+            margin: 20px 0;
+        }
+
+        .nav-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav .fa-bars {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .text-box {
+            margin-top: 50px;
+        }
+
+        .text-box h1 {
+            font-size: 32px;
+        }
+
+        .text-box p {
+            font-size: 16px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 10px 30px;
+            font-size: 13px;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hero-btn:hover {
+            border: 1px solid #f44336;
+            background: #f44336;
+            transition: 1s;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .services, .about-section, .team-member, .testimonial {
+            flex: 1 1 100%;
+            margin: 10px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
+        }
+
+        .services i, .about-section i, .team-member img, .testimonial img {
+            margin-bottom: 10px;
+        }
+
+        .services h2, .about-section h2, .team-member h3, .testimonial cite {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .services p, .about-section p, .team-member p, .testimonial blockquote {
+            font-size: 16px;
+            color: #777;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer-info, .footer-social {
+            margin-bottom: 20px;
+        }
+
+        .footer-info p, .footer-social a {
+            font-size: 14px;
+        }
+
+        .footer-social a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #298;
+        }
+
+        /* Media Queries for Tablets (min-width: 600px) */
+        @media (min-width: 600px) {
+            .text-box h1 {
+                font-size: 42px;
+            }
+
+            .text-box p {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 40px;
+            }
+
+            .services, .about-section, .team-member, .testimonial {
+                flex: 1 1 45%;
+                margin: 10px;
+            }
+
+            .form-group input, .form-group textarea {
+                font-size: 16px;
+            }
+        }
+
+        /* Media Queries for Laptops and Desktops (min-width: 992px) */
+        @media (min-width: 992px) {
+            .text-box h1 {
+                font-size: 62px;
+            }
+
+            .text-box p {
+                font-size: 20px;
+            }
+
+            nav {
+                padding: 2%;
+            }
+
+            nav img {
+                width: 120px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: static;
+                background: none;
+                height: auto;
+                padding: 0;
+            }
+
+            .nav-links ul {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .nav-links ul li {
+                margin: 0 10px;
+            }
+
+            nav .fa-bars {
+                display: none;
+            }
+
+            .container {
+                padding: 60px 100px;
+            }
+
+            .services, .about-section, .team-member, .testimonial {
+                flex: 1 1 30%;
+            }
+
+            .form-group {
+                width: 70%;
+            }
+
+            form {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        }
+
+        /* Hover effect */
+        .container .services:hover,
+        .container .about-section:hover,
+        .container .team:hover,
+        .container .testimonial:hover {
+            transform: scale(1.05);
+            background: #298;
+            color: #fff;
         }
     </style>
-
-
-
 </head>
 <body>
-    <section class="header">
-        <nav>
-            <a href="home.html"><img src="logo.jpeg" alt="Logo"></a>
-            <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#">SERVICES</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                    <li><a href="#">TEAM</a></li>
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
-        <div class="text-box">
-            <h1>KADRAF Technology</h1>
-            <p>We see ourselves as Tanzania's leading Information Technology company providing quality<br>solutions backed up by unbeatable customer services</p>
-        </div>
-    </section>
 
-    <div class="container">
-        <h1>Our Services</h1>
-        <div class="row">
-            <div class="services">
-                <i class="fas fa-code"></i>
-                <h2>Web Design and Development</h2>
-                <p>KADRAF TECH provides professional website design and maintenance services.</p>
-            </div>
-            <div class="services">
-                <i class="fab fa-internet-explorer"></i>
-                <h2>Domain Name Registration and Web Hosting</h2>
-                <p>We offer top-level domain registration including country code top-level domains for Tanzania.</p>
-            </div>
-            <div class="services">
-                <i class="fa fa-laptop"></i>
-                <h2>Automation Services</h2>
-                <p>Services include data processing, web scraping, task scheduling, GUI automation, and more.</p>
-            </div>
-            <div class="services">
-                <i class="fas fa-bug"></i>
-                <h2>Bug Bounty Hunting Programs</h2>
-                <p>We engage in authorized challenges to test system vulnerabilities.</p>
-            </div>
-            <div class="services">
-                <i class="fa fa-laptop"></i>
-                <h2>Software Designing and Development</h2>
-                <p>We provide software solutions such as client-server apps, web-based apps, enterprise solutions, and more.</p>
-            </div>
-            <div class="services">
-                <i class="fas fa-mobile"></i>
-                <h2>Mobile Tracking</h2>
-                <p>Tracking location of a lost phone using phone number and google account. Tracking a stolen mobile phone using IMEI number. Tracking phone conversations including messages, calls, chats and etc. using IMEI number. To find someone exact location.</p>
-            </div>
-            <div class="services">
-                <i class="fas fa-columns"></i>
-                <h2>Graphics and Designing</h2>
-                <p>Services include data processing, file and folder management, web scraping, task scheduling, and GUI automation.</p>
-            </div>
-            <div class="services">
-                <i class="fas fa-pen-nib"></i>
-                <h2>Mobile Applications Development</h2>
-                <p>Application can be built from scratch to meet your specific requirements. Our mobile application development includes: Android Application Development. iPhone Application Development.</p>
-            </div>
-            <div class="services">
-                <i class="fas fa-database"></i>
-                <h2>Databases Design and Development</h2>
-                <p>We offer custom database solutions. Our expertise lies in: Database design, Database development and programming, Database integration and conversion, Database maintenance and support, Database management and administration.</p>
-            </div>
-            <div class="services">
-                <i class="fas fa-server"></i>
-                <h2>Providing Internet Services</h2>
-                <p>We provide you with the essential equipment and infrastructure to access the internet at any capacity.</p>
-            </div>
+<div class="header">
+    <nav>
+        <img src="Kadraf" alt="KADRAF">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div class="nav-links" id="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
+    </nav>
+
+    <div class="text-box">
+        <h1>Welcome to Kadraf Technology</h1>
+        <p>Your gateway to a world of technology</p>
+        <a href="#" class="hero-btn">Explore Now</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Our Services</h1>
+    <div class="row">
+        <div class="services">
+            <img src="service1.jpeg" alt="Service 1" style="width:100%; height: 200px;">
+            <h2>Service 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="services">
+            <img src="service1.jpeg" alt="Service 2" style="width:100%; height: 200px;">
+            <h2>Service 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="services">
+            <img src="service1.jpeg" alt="Service 3" style="width:100%; height: 200px;">
+            <h2>Service 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="services">
+            <img src="service1.jpeg" alt="Service 4" style="width:100%; height: 200px;">
+            <h2>Service 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="services">
+            <img src="service1.jpeg" alt="Service 5" style="width:100%; height: 200px;">
+            <h2>Service 5</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="services">
+            <img src="service1.jpeg" alt="Service 6" style="width:100%; height: 200px;">
+            <h2>Service 6</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <!-- Add more services as needed -->
     </div>
 
-    <div id="about">
-        <div class="container">
-            <h1>About Us</h1>
-            <div class="row">
-                <div class="about-section">
-                    <i class="fas fa-users"></i>
-                    <h2>Our Team</h2>
-                    <p>We have a diverse team of experts with years of experience in various fields.</p>
-                </div>
-                <div class="about-section">
-                    <i class="fas fa-history"></i>
-                    <h2>Our History</h2>
-                    <p>Founded in 2010, we have grown from a small startup to a leading provider of tech solutions, serving clients worldwide.</p>
-                </div>
-                <div class="about-section">
-                    <i class="fas fa-briefcase"></i>
-                    <h2>Our Mission</h2>
-                    <p>Our mission is to deliver innovative and reliable technology solutions that help businesses achieve their goals.</p>
-                </div>
-                <div class="about-section">
-                    <i class="fas fa-chart-line"></i>
-                    <h2>Our Vision</h2>
-                    <p>We aim to be at the forefront of technology, continuously evolving to meet the needs of our clients and the industry.</p>
-                </div>
-            </div>
+    <h1>About Us</h1>
+    <div class="row">
+        <div class="about-section">
+            <i class="fa fa-info-circle"></i>
+            <h2>About Section</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
+
+        <div class="about-section">
+            <i class="fas fa-users"></i>
+            <h2>Our Team</h2>
+            <p>We have a diverse team of experts with years of experience in various fields, including web development, automation, and cybersecurity.</p>
+        </div>
+        <div class="about-section">
+            <i class="fas fa-history"></i>
+            <h2>Our History</h2>
+            <p>Founded in 2010, we have grown from a small startup to a leading provider of tech solutions, serving clients worldwide.</p>
+        </div>
+        <div class="about-section">
+            <i class="fas fa-briefcase"></i>
+            <h2>Our Mission</h2>
+            <p>Our mission is to deliver innovative and reliable technology solutions that help businesses achieve their goals.</p>
+        </div>
+        <div class="about-section">
+            <i class="fas fa-chart-line"></i>
+            <h2>Our Vision</h2>
+            <p>We aim to be at the forefront of technology, continuously evolving to meet the needs of our clients and the industry.</p>
+        </div>
+
+
+
+
+
+        <!-- Add more about sections as needed -->
     </div>
 
-    <section id="team" class="section">
-        <h2>Our Team</h2>
-        <div class="row">
-            <div class="team-member">
-                <img src="team-member1.jpg" alt="Team Member 1">
-                <h3>John Doe</h3>
-                <p>CEO & Founder</p>
-            </div>
-            <div class="team-member">
-                <img src="team-member2.jpg" alt="Team Member 2">
-                <h3>Jane Smith</h3>
-                <p>Chief Technology Officer</p>
-            </div>
-            <div class="team-member">
-                <img src="team-member3.jpg" alt="Team Member 3">
-                <h3>Michael Brown</h3>
-                <p>Head of Operations</p>
-            </div>
-            <div class="team-member">
-                <img src="team-member4.jpg" alt="Team Member 4">
-                <h3>Sarah Johnson</h3>
-                <p>Lead Developer</p>
-            </div>
-            <div class="team-member">
-                <img src="team-member5.jpg" alt="Team Member 5">
-                <h3>David Wilson</h3>
-                <p>Marketing Director</p>
-            </div>
+    <h1>Our Team</h1>
+    <div class="row">
+        <div class="team-member">
+            <img src="service1.jpeg" alt="Team Member">
+            <h3>Team Member 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-    </section>
+        <div class="team-member">
+            <img src="service1.jpeg" alt="Team Member">
+            <h3>Team Member 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
 
-    <section id="testimonials" class="section">
-        <h2>Testimonials</h2>
-        <div class="row">
-            <div class="testimonial">
-                <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</blockquote>
-                <cite>John Smith</cite>
-            </div>
-            <div class="testimonial">
-                <blockquote>"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</blockquote>
-                <cite>Jane Doe</cite>
-            </div>
+        <div class="team-member">
+            <img src="service1.jpeg" alt="Team Member">
+            <h3>Team Member 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-    </section>
 
-    <div id="contact">
-        <div class="container">
-            <h1>Contact Us</h1>
-            <div class="row">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+        <div class="team-member">
+            <img src="service1.jpeg" alt="Team Member">
+            <h3>Team Member 4</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
+
+        <div class="team-member">
+            <img src="service1.jpeg" alt="Team Member">
+            <h3>Team Member 5</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <!-- Add more team members as needed -->
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-info">
-                <h3>KADRAF Technology</h3>
-                <p>Address, City, Country</p>
-                <p>Email: info@kadraftech.com</p>
-                <p>Phone: +123 456 7890</p>
-            </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+    <h1>Testimonials</h1>
+    <div class="row">
+        <div class="testimonial">
+            <img src="testimonial1.jpg" alt="Testimonial">
+            <blockquote>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </blockquote>
+            <cite>John Doe</cite>
         </div>
-    </footer>
+        <!-- Add more testimonials as needed -->
+    </div>
 
-    <script>
-        var navLinks = document.getElementById("navLinks");
-    
-        function showMenu() {
-            navLinks.style.right = "0";
-        }
-    
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-        }
-    
-        // Close the menu when a link is clicked (useful for mobile)
-        document.querySelectorAll('.nav-links ul li a').forEach(link => {
+    <h1>Contact Us</h1>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<footer>
+    <div class="footer-info">
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </div>
+    <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <!-- Add more social links as needed -->
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+            }
+        });
+
+        const navLinksItems = navLinks.querySelectorAll('a');
+        navLinksItems.forEach(link => {
             link.addEventListener('click', () => {
-                hideMenu();
+                navLinks.style.display = 'none';
             });
         });
-    </script>
-    
+
+        const sections = document.querySelectorAll('.services, .about-section, .team-member, .testimonial');
+        sections.forEach(section => {
+            section.addEventListener('touchstart', () => {
+                section.style.transform = 'scale(1.05)';
+                section.style.background = '#298';
+                section.style.color = '#fff';
+            });
+            section.addEventListener('touchend', () => {
+                section.style.transform = 'scale(1)';
+                section.style.background = '';
+                section.style.color = '';
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
