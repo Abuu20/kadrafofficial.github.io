@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+.header {
+    background: url('images/background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 5%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links ul li {
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    color: #e0e0e0;
+}
+
+.fa-bars,
+.fa-window-close {
+    display: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.hero-section {
+    margin-top: -5rem;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.services, .about-us, .solutions, .resources, .testimonials {
+    padding: 3rem 5%;
+}
+
+.services h1, .about-us h1, .solutions h2, .resources h2, .testimonials h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.services .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service-col {
+    flex: 1 1 30%;
+    background: #f9f9f9;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-col i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.service-col h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-col p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.service-col:hover {
+    transform: scale(1.05);
+}
+
+.about-us .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.team-member {
+    flex: 1 1 30%;
+    background: #f9f9f9;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.solutions, .resources, .testimonials {
+    background: #f5f5f5;
+}
+
+.solutions h2, .resources h2, .testimonials h2 {
+    font-size: 2.5rem;
+}
+
+.solution-box, .resource-box, .testimonial-box {
+    flex: 1 1 30%;
+    background: #fff;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.solution-box:hover, .resource-box:hover, .testimonial-box:hover {
+    transform: scale(1.05);
+}
+
+.solution-box h3, .resource-box h3, .testimonial-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.solution-box p, .resource-box p, .testimonial-box p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.footer {
+    padding: 3rem 5%;
+    text-align: center;
+    background: #333;
+    color: #fff;
+}
+
+.footer .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.footer .box {
+    flex: 1 1 20rem;
+    text-align: left;
+}
+
+.footer .box h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer .box a {
+    font-size: 1rem;
+    color: #999;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.footer .box a:hover {
+    color: #fff;
+}
+
+.footer .box p {
+    font-size: 1rem;
+    color: #999;
+    line-height: 1.6;
+}
